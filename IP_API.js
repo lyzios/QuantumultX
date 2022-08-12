@@ -9,7 +9,7 @@ if ($response.statusCode != 200) {
   var title =flags.get(obj['countryCode']) + obj['country'];
   var subtitle = obj['city'] + ' ' + obj['isp'];
   var ip = obj['query'];
-  var description = "国家" + ":" + obj['country'] + '\n' + "城市" + ":" + obj['city'] + '\n' + "运营商" + ":" + obj['isp'] + 'IP:'+ obj['query'] + '\n' + "数据中心" + ":" + obj['org'];
+  var description = "国家" + ":" + obj['country'] + '\n' + "城市" + ":" + obj['city'] + '\n' + "运营商" + ":" + obj['isp'] + '\n' + "数据中心" + ":" + obj['org'];
   
   
   $done({title, subtitle, ip, description});
