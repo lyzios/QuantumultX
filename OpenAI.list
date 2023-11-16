@@ -9,6 +9,7 @@ HOST-SUFFIX,statsig.com,OpenAI
 HOST-SUFFIX,digicert.com,OpenAI
 HOST-SUFFIX,datadoghq.com,OpenAI
 HOST-SUFFIX,oaiusercontent.com,OpenAI
+HOST-SUFFIX,oaistatic.com,OpenAI
 HOST-SUFFIX,livekit.cloud,OpenAI
 HOST-SUFFIX,intercomassets.com,OpenAI
 HOST-SUFFIX,cloudflareinsights.com,OpenAI
