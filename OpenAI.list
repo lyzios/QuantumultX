@@ -1,0 +1,26 @@
+# NAME: OpenAI
+# AUTHOR: LYZIOS
+# UPDATED: 2023-11-16
+
+HOST-SUFFIX,openai.com,OpenAI
+HOST-SUFFIX,openai.io,OpenAI
+HOST-SUFFIX,sentry.io,OpenAI
+HOST-SUFFIX,statsig.com,OpenAI
+HOST-SUFFIX,digicert.com,OpenAI
+HOST-SUFFIX,datadoghq.com,OpenAI
+HOST-SUFFIX,oaiusercontent.com,OpenAI
+HOST-SUFFIX,livekit.cloud,OpenAI
+HOST-SUFFIX,intercomassets.com,OpenAI
+HOST-SUFFIX,cloudflareinsights.com,OpenAI
+HOST-KEYWORD,chatgpt,OpenAI
+
+#Capture packets
+#api.statsig.com
+#ocsp.digicert.com
+#browser-intake-datadoghq.com
+#files.oaiusercontent.com
+#dsgp1a.turn.livekit.cloud
+#chatpgt.livekit.cloud
+#oaic.report-uri.com
+#static.intercomassets.com
+#cloudflareinsights.com
