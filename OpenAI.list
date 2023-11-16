@@ -25,11 +25,11 @@ HOST-SUFFIX,edgecompute.app,OpenAI
 HOST-SUFFIX,epsiloncdn.net,OpenAI
 HOST-SUFFIX,f7tk.com,OpenAI
 HOST-SUFFIX,featuregates.org,OpenAI
-HOST-SUFFIX,google-analytics.com,OpenAI
-HOST-SUFFIX,googleapis.com,OpenAI
-HOST-SUFFIX,google.com,OpenAI
-HOST-SUFFIX,googletagmanager.com,OpenAI
-HOST-SUFFIX,googleusercontent.com,OpenAI
+#HOST-SUFFIX,google-analytics.com,OpenAI
+#HOST-SUFFIX,googleapis.com,OpenAI
+#HOST-SUFFIX,google.com,OpenAI
+#HOST-SUFFIX,googletagmanager.com,OpenAI
+#HOST-SUFFIX,googleusercontent.com,OpenAI
 HOST-SUFFIX,gpt3sandbox.com,OpenAI
 HOST-SUFFIX,gstatic.com,OpenAI
 HOST-SUFFIX,hcaptcha.com,OpenAI
