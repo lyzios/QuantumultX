@@ -14,5 +14,5 @@ HOST,itunes.apple.com,App Store
 HOST,ppq.apple.com,App Store
 
 #通用链接的关联域
-HOST,app-site-association.cdn-apple.com,App Store
-HOST,app-site-association.networking.apple,App Store
+#HOST,app-site-association.cdn-apple.com,App Store
+#HOST,app-site-association.networking.apple,App Store
