@@ -1,0 +1,18 @@
+# NAME: AppStore
+# AUTHOR: LYZIOS
+# UPDATED: 2023-11-21
+#Apple域名详情：https://support.apple.com/zh-cn/HT210060
+
+
+#商店内容，如 App、图书和音乐
+HOST-SUFFIX,apps.apple.com,App Store
+HOST-SUFFIX,itunes.apple.com,App Store
+HOST-SUFFIX,mzstatic.com,App Store
+#无
+HOST,itunes.apple.com,App Store
+#企业 App 验证
+HOST,ppq.apple.com,App Store
+
+#通用链接的关联域
+HOST,app-site-association.cdn-apple.com,App Store
+HOST,app-site-association.networking.apple,App Store
