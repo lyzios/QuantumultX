@@ -66,6 +66,7 @@ HOST,ai.cn,OpenAI
 HOST,chat.openai.com,OpenAI
 HOST,chat.openai.com.cdn.cloudflare.net,OpenAI
 HOST,chat.openai.com.cdn.cloudflare.net,OpenAI
+HOST,chatgpt.livekit.cloud,OpenAI
 HOST,openaiapi-site.azureedge.net,OpenAI
 HOST,nrt12s30-in-f4.1e100.net,OpenAI
 HOST,static-ecst.licdn.com,OpenAI
