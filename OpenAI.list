@@ -1,6 +1,6 @@
 # NAME: OpenAI
 # AUTHOR: LYZIOS
-# UPDATED: 2023-11-16
+# UPDATED: 2024-1-12
 
 HOST-SUFFIX,1e100.net,OpenAI
 HOST-SUFFIX,ai.com,OpenAI
@@ -16,7 +16,6 @@ HOST-SUFFIX,browser-intake-datadoghq.com,OpenAI
 HOST-SUFFIX,cloudflare.com,OpenAI
 HOST-SUFFIX,cloudflare.net,OpenAI
 HOST-SUFFIX,cloudfront.net,OpenAI
-HOST-SUFFIX,cloudflareinsights.com,OpenAI
 HOST-SUFFIX,cloudflareinsights.com,OpenAI
 HOST-SUFFIX,compute-pipe.com,OpenAI
 HOST-SUFFIX,digicert.com,OpenAI
