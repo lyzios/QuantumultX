@@ -42,6 +42,7 @@ HOST-SUFFIX,segment.io
 HOST-SUFFIX,sentry.io
 HOST-SUFFIX,stripe.com
 HOST-SUFFIX,turn.livekit.cloud
+HOST-SUFFIX,webpubsub.azure.com
 
 IP-CIDR,24.199.123.28/32
 IP-CIDR,64.23.132.171/32
