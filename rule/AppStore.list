@@ -5,10 +5,22 @@
 
 
 #商店内容，如 App、图书和音乐
-HOST-SUFFIX,apps.apple.com,App Store
-HOST-SUFFIX,itunes.apple.com,App Store
-HOST-SUFFIX,mzstatic.com,App Store
+HOST-SUFFIX, apps.apple.com,App Store
+HOST-SUFFIX, itunes.apple.com,App Store
+HOST-SUFFIX, mzstatic.com,App Store
+
 #无
-HOST,itunes.apple.com,App Store
+HOST, itunes.apple.com,App Store
+
 #企业 App 验证
-HOST,ppq.apple.com,App Store
+HOST, ppq.apple.com,App Store
+
+#App 公证
+HOST, api.apple-cloudkit.com
+
+#App 验证，以及网站触控 ID 和面容 ID 认证
+HOST-SUFFIX, appattest.apple.com
+
+#安装来自网站和替代市场的 App
+HOST-SUFFIX, apps-marketplace.apple.com
+
