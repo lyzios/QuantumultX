@@ -14,7 +14,6 @@ HOST,production-openaicom-storage.azureedge.net
 
 HOST-SUFFIX,ai.com
 HOST-SUFFIX,algolia.net
-HOST-SUFFIX,api.statsig.com
 HOST-SUFFIX,auth0.com
 HOST-SUFFIX,challenges.cloudflare.com
 HOST-SUFFIX,chatgpt.com
@@ -22,8 +21,8 @@ HOST-SUFFIX,chatgpt.livekit.cloud
 HOST-SUFFIX,client-api.arkoselabs.com
 HOST-SUFFIX,cloudflareinsights.com
 HOST-SUFFIX,compute-pipe.com
-HOST-SUFFIX,events.statsigapi.net
 HOST-SUFFIX,featuregates.org
+HOST-SUFFIX,featureassets.org
 HOST-SUFFIX,hcaptcha.com
 HOST-SUFFIX,host.livekit.cloud
 HOST-SUFFIX,identrust.com
@@ -39,9 +38,12 @@ HOST-SUFFIX,openai.org
 HOST-SUFFIX,openaiapi-site.azureedge.net
 HOST-SUFFIX,openaicom.imgix.net
 HOST-SUFFIX,poe.com
+HOST-SUFFIX,prodregistryv2.org
 HOST-SUFFIX,recaptcha.net
 HOST-SUFFIX,segment.io
 HOST-SUFFIX,sentry.io
+HOST-SUFFIX,statsig.com
+HOST-SUFFIX,statsigapi.net
 HOST-SUFFIX,stripe.com
 HOST-SUFFIX,turn.livekit.cloud
 HOST-SUFFIX,webpubsub.azure.com
