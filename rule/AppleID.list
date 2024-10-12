@@ -1,0 +1,12 @@
+# NAME: AppleID
+# AUTHOR: LYZIOS
+# UPDATED: 2024-10-12
+#Apple域名详情：https://support.apple.com/zh-cn/HT210060
+
+
+#“设置”和“系统偏好设置”中的 Apple 账户认证
+HOST,account.apple.com
+HOST,appleid.cdn-apple.com
+#Apple 账户认证
+HOST,idmsa.apple.com
+HOST,gsa.apple.com

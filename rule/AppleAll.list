@@ -1,0 +1,30 @@
+# NAME: AppleAll
+# AUTHOR: LYZIOS
+# UPDATED: 2024-10-12
+#Apple域名详情：https://support.apple.com/zh-cn/HT210060
+
+HOST-SUFFIX, apple.com
+HOST-SUFFIX, icloud.com
+HOST-SUFFIX, cdn-apple.com
+HOST-SUFFIX, mzstatic.com
+HOST-SUFFIX, vertexsmb.com
+HOST-SUFFIX, apple.com.cn
+HOST-SUFFIX, appleschoolcontent.com
+HOST-SUFFIX, apple-mapkit.com
+HOST-SUFFIX, axm-usercontent-apple.com
+HOST-SUFFIX, mzstatic.com
+HOST, appldnld.apple.com.edgesuite.net
+HOST, crl3.digicert.com
+HOST, crl4.digicert.com
+HOST, ocsp.digicert.cn
+HOST, ocsp.digicert.com
+HOST-SUFFIX, apple-cloudkit.com
+HOST-SUFFIX, apple-livephotoskit.com
+HOST-SUFFIX, apzones.com
+HOST-SUFFIX, icloud.com.cn
+HOST-SUFFIX, icloud-content.com
+HOST, apple-relay.cloudflare.com
+HOST, apple-relay.fastly-edge.com
+HOST, cp4.cloudflare.com
+HOST, app-site-association.networking.apple
+IP-CIDR, 17.0.0.0/8

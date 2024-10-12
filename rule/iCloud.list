@@ -1,0 +1,26 @@
+# NAME: iCloud
+# AUTHOR: LYZIOS
+# UPDATED: 2024-10-12
+#Apple域名详情：https://support.apple.com/zh-cn/HT210060
+
+
+#iCloud服务
+HOST-SUFFIX, apple-cloudkit.com
+HOST-SUFFIX, apple-livephotoskit.com
+HOST-SUFFIX, cdn-apple.com
+HOST-SUFFIX, gc.apple.com
+HOST-SUFFIX, icloud.com
+HOST-SUFFIX, icloud.apple.com
+HOST-SUFFIX, icloud-content.com
+
+#中国大陆的iCloud服务
+HOST-SUFFIX, apzones.com
+HOST-SUFFIX, icloud.com.cn
+
+#iWork文稿
+HOST-SUFFIX, iwork.apple.com
+
+#iCloud专用代理
+HOST, mask.icloud.com
+HOST, mask-h2.icloud.com
+HOST, mask-api.icloud.com
