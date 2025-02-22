@@ -1,8 +1,7 @@
 # NAME: ChatGPT
 # AUTHOR: LYZIOS
-# UPDATED: 2024-10-7
+# UPDATED: 2025-02-22
 
-HOST,browser-intake-datadoghq.com
 HOST,chat.openai.com.cdn.cloudflare.net
 HOST,gemini.google.com
 HOST,openaicom.imgix.net
@@ -15,6 +14,7 @@ HOST,production-openaicom-storage.azureedge.net
 HOST-SUFFIX,ai.com
 HOST-SUFFIX,algolia.net
 HOST-SUFFIX,auth0.com
+HOST-SUFFIX,browser-intake-datadoghq.com
 HOST-SUFFIX,challenges.cloudflare.com
 HOST-SUFFIX,chatgpt.com
 HOST-SUFFIX,chatgpt.livekit.cloud
