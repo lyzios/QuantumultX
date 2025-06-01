@@ -1,0 +1,21 @@
+# NAME: NBToolAds
+# AUTHOR: LYZIOS
+# UPDATED: 2025-6-1
+
+HOST-SUFFIX,e.kuaishou.com
+HOST-SUFFIX,gepush.com
+HOST-SUFFIX,bugly.qq.com
+HOST-SUFFIX,adukwai.com
+HOST-SUFFIX,adkwai.com
+HOST-SUFFIX,yxings.com
+HOST-SUFFIX,zhangyuyidong.cn
+HOST-SUFFIX,tanx.com
+HOST-SUFFIX,huichuan.sm.cn
+HOST-SUFFIX,adintl.cn
+HOST-SUFFIX,kwimgs.com
+HOST-SUFFIX,cdnhwc8.com
+HOST-SUFFIX,image.uczzd.cn
+HOST-SUFFIX,ndcimgs.com
+HOST-SUFFIX,static-dsp.8ziben.com
+HOST-SUFFIX,dispatcher.is.autonavi.com
+HOST-SUFFIX,gifshow.com
