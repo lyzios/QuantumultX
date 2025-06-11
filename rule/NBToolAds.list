@@ -25,4 +25,4 @@ HOST-SUFFIX,eos.huhehaote-8.cmecloud.cn
 HOST-SUFFIX,sdoss.ctyunxs.cn
 HOST-SUFFIX,ilce.alicdn.com
 HOST-SUFFIX,ctyunxs.cn
-HOST-SUFFIX,s3plus.meituan.net
+#HOST-SUFFIX,s3plus.meituan.net
