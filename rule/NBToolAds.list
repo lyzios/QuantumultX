@@ -17,7 +17,7 @@ HOST-SUFFIX,cdnhwc8.com
 HOST-SUFFIX,image.uczzd.cn
 HOST-SUFFIX,ndcimgs.com
 HOST-SUFFIX,static-dsp.8ziben.com
-HOST-SUFFIX,dispatcher.is.autonavi.com
+#HOST-SUFFIX,dispatcher.is.autonavi.com
 HOST-SUFFIX,gifshow.com
 HOST-SUFFIX,api-cfg.8ziben.com
 HOST-SUFFIX,api-dsp.8ziben.com
