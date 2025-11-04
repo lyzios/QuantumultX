@@ -3,16 +3,19 @@
 # UPDATED: 2025-10-23
 
 HOST-SUFFIX,apple-relay.apple.com
-HOST-SUFFIX,guzzoni.apple.com
-HOST-SUFFIX,siri.apple.com
-HOST-SUFFIX,smoot.apple.com
+HOST-SUFFIX,apple-relay.cloudflare.com
+HOST-SUFFIX,apple-relay.fastly-edge.com
+HOST-SUFFIX,apple-relay.mask.apple-dns.net
+
+HOST-SUFFIX,cp4.cloudflare.com
+
+HOST-SUFFIX,gateway.fe2.apple-dns.net
 HOST-SUFFIX,gateway.icloud.com
 HOST-SUFFIX,gsas.apple.com
-HOST-SUFFIX,apple-relay.cloudflare.com
-HOST-SUFFIX,apple-relay.mask.apple-dns.net
-HOST-SUFFIX,gateway.fe2.apple-dns.net
 HOST-SUFFIX,gspe1-ssl.ls.apple.com
-HOST-SUFFIX,apple-relay.fastly-edge.com
+HOST-SUFFIX,guzzoni.apple.com
+
 HOST-SUFFIX,seed-siri-apple-com.v.aaplimg.com
+HOST-SUFFIX,siri.apple.com
+HOST-SUFFIX,smoot.apple.com
 HOST-SUFFIX,smoot-searchv2-aapse1c.v.aaplimg.com
-HOST-SUFFIX,cp4.cloudflare.com
