@@ -1,17 +1,17 @@
 /*
-引用地址 https://raw.githubusercontent.com/RuCu6/Loon/main/Scripts/xiaohongshu.js
+å¼•ç”¨åœ°å€ https://raw.githubusercontent.com/RuCu6/Loon/main/Scripts/xiaohongshu.js
 */
-// 2025-03-22 19:55
+// 2025-07-31 19:10
 
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
 if (url.includes("/v1/interaction/comment/video/download")) {
-  // 评论区实况照片保存请求
-  let commitsCache = JSON.parse($persistentStore.read("redBookCommentLivePhoto")); // 读取持久化存储
+  // è¯„è®ºåŒºå®žå†µç…§ç‰‡ä¿å­˜è¯·æ±‚
+  let commitsCache = JSON.parse($persistentStore.read("redBookCommentLivePhoto")); // è¯»å–æŒä¹…åŒ–å­˜å‚¨
   if (commitsCache) {
-    let commitsRsp = JSON.parse(commitsCache);
+    let commitsRsp = commitsCache;
     if (commitsRsp?.livePhotos?.length > 0 && obj?.data?.video) {
       for (const item of commitsRsp.livePhotos) {
         if (item?.videId === obj?.data?.video?.video_id) {
@@ -22,27 +22,27 @@ if (url.includes("/v1/interaction/comment/video/download")) {
     }
   }
 } else if (url.includes("/v1/note/imagefeed") || url.includes("/v2/note/feed")) {
-  // 信息流 图片
+  // ä¿¡æ¯æµ å›¾ç‰‡
   let newDatas = [];
   if (obj?.data?.[0]?.note_list?.length > 0) {
     for (let item of obj.data[0].note_list) {
       if (item?.media_save_config) {
-        // 水印开关
+        // æ°´å°å¼€å…³
         item.media_save_config.disable_save = false;
         item.media_save_config.disable_watermark = true;
         item.media_save_config.disable_weibo_cover = true;
       }
       if (item?.share_info?.function_entries?.length > 0) {
-        // 视频下载限制
+        // è§†é¢‘ä¸‹è½½é™åˆ¶
         const additem = { type: "video_download" };
-        // 检查是否存在 video_download 并获取其索引
+        // æ£€æŸ¥æ˜¯å¦å­˜åœ¨ video_download å¹¶èŽ·å–å…¶ç´¢å¼•
         let videoDownloadIndex = item.share_info.function_entries.findIndex((i) => i?.type === "video_download");
         if (videoDownloadIndex !== -1) {
-          // 如果存在，将其移动到数组的第一个位置
+          // å¦‚æžœå­˜åœ¨ï¼Œå°†å…¶ç§»åŠ¨åˆ°æ•°ç»„çš„ç¬¬ä¸€ä¸ªä½ç½®
           let videoDownloadEntry = item.share_info.function_entries.splice(videoDownloadIndex, 1)[0];
           item.share_info.function_entries.splice(0, 0, videoDownloadEntry);
         } else {
-          // 如果不存在，在数组开头添加一个新的 video_download 对象
+          // å¦‚æžœä¸å­˜åœ¨ï¼Œåœ¨æ•°ç»„å¼€å¤´æ·»åŠ ä¸€ä¸ªæ–°çš„ video_download å¯¹è±¡
           item.share_info.function_entries.splice(0, 0, additem);
         }
       }
@@ -61,7 +61,7 @@ if (url.includes("/v1/interaction/comment/video/download")) {
               };
               newDatas.push(myData);
             }
-            // 写入持久化存储
+            // å†™å…¥æŒä¹…åŒ–å­˜å‚¨
             $persistentStore.write(JSON.stringify(newDatas), "redBookLivePhoto");
           }
         }
@@ -69,25 +69,25 @@ if (url.includes("/v1/interaction/comment/video/download")) {
     }
   }
 } else if (url.includes("/v1/note/live_photo/save")) {
-  // 实况照片保存请求
-  let livePhoto = JSON.parse($persistentStore.read("redBookLivePhoto")); // 读取持久化存储
+  // å®žå†µç…§ç‰‡ä¿å­˜è¯·æ±‚
+  let livePhoto = JSON.parse($persistentStore.read("redBookLivePhoto")); // è¯»å–æŒä¹…åŒ–å­˜å‚¨
   if (obj?.data?.datas?.length > 0) {
-    // 原始数据没问题 交换url数据
+    // åŽŸå§‹æ•°æ®æ²¡é—®é¢˜ äº¤æ¢urlæ•°æ®
     if (livePhoto?.length > 0) {
       obj.data.datas.forEach((itemA) => {
         livePhoto.forEach((itemB) => {
           if (itemB?.file_id === itemA?.file_id && itemA?.url) {
-            itemA.url = itemA.url.replace(/^https?:\/\/.*\.mp4$/g, itemB.url);
+            itemA.url = itemA.url.replace(/^https?:\/\/.*\.mp4/g, itemB.url);
           }
         });
       });
     }
   } else {
-    // 原始数据有问题 强制返回成功响应
-    obj = { code: 0, success: true, msg: "成功", data: { datas: livePhoto } };
+    // åŽŸå§‹æ•°æ®æœ‰é—®é¢˜ å¼ºåˆ¶è¿”å›žæˆåŠŸå“åº”
+    obj = { code: 0, success: true, msg: "æˆåŠŸ", data: { datas: livePhoto } };
   }
 } else if (url.includes("/v1/system/service/ui/config")) {
-  // 整体 ui 配置
+  // æ•´ä½“ ui é…ç½®
   if (obj?.data?.sideConfigHomepage?.componentConfig?.sidebar_config_cny_2025) {
     obj.data.sideConfigHomepage.componentConfig.sidebar_config_cny_2025 = {};
   }
@@ -95,7 +95,7 @@ if (url.includes("/v1/interaction/comment/video/download")) {
     obj.data.sideConfigPersonalPage.componentConfig.sidebar_config_cny_2025 = {};
   }
 } else if (url.includes("/v1/system_service/config")) {
-  // 整体配置
+  // æ•´ä½“é…ç½®
   const item = ["app_theme", "loading_img", "splash", "store"];
   if (obj?.data) {
     for (let i of item) {
@@ -103,68 +103,68 @@ if (url.includes("/v1/interaction/comment/video/download")) {
     }
   }
 } else if (url.includes("/v2/note/widgets")) {
-  // 详情页小部件
+  // è¯¦æƒ…é¡µå°éƒ¨ä»¶
   const item = ["cooperate_binds", "generic", "note_next_step", "widgets_nbb", "widgets_ncb", "widgets_ndb"];
-  // cooperate_binds合作品牌 note_next_step活动 widgets_nbb相关搜索
+  // cooperate_bindsåˆä½œå“ç‰Œ note_next_stepæ´»åŠ¨ widgets_nbbç›¸å…³æœç´¢
   if (obj?.data) {
     for (let i of item) {
       delete obj.data[i];
     }
   }
 } else if (url.includes("/v2/system_service/splash_config")) {
-  // 开屏广告
+  // å¼€å±å¹¿å‘Š
   if (obj?.data?.ads_groups?.length > 0) {
     for (let i of obj.data.ads_groups) {
-      i.start_time = 3818332800; // Unix 时间戳 2090-12-31 00:00:00
-      i.end_time = 3818419199; // Unix 时间戳 2090-12-31 23:59:59
+      i.start_time = 3818332800; // Unix æ—¶é—´æˆ³ 2090-12-31 00:00:00
+      i.end_time = 3818419199; // Unix æ—¶é—´æˆ³ 2090-12-31 23:59:59
       if (i?.ads?.length > 0) {
         for (let ii of i.ads) {
-          ii.start_time = 3818332800; // Unix 时间戳 2090-12-31 00:00:00
-          ii.end_time = 3818419199; // Unix 时间戳 2090-12-31 23:59:59
+          ii.start_time = 3818332800; // Unix æ—¶é—´æˆ³ 2090-12-31 00:00:00
+          ii.end_time = 3818419199; // Unix æ—¶é—´æˆ³ 2090-12-31 23:59:59
         }
       }
     }
   }
 } else if (url.includes("/v2/user/followings/followfeed")) {
-  // 关注页信息流 可能感兴趣的人
+  // å…³æ³¨é¡µä¿¡æ¯æµ å¯èƒ½æ„Ÿå…´è¶£çš„äºº
   if (obj?.data?.items?.length > 0) {
-    // 白名单
+    // ç™½åå•
     obj.data.items = obj.data.items.filter((i) => i?.recommend_reason === "friend_post");
   }
 } else if (url.includes("/v3/note/videofeed")) {
-  // 信息流 视频
+  // ä¿¡æ¯æµ è§†é¢‘
   if (obj?.data?.length > 0) {
     for (let item of obj.data) {
       if (item?.media_save_config) {
-        // 水印开关
+        // æ°´å°å¼€å…³
         item.media_save_config.disable_save = false;
         item.media_save_config.disable_watermark = true;
         item.media_save_config.disable_weibo_cover = true;
       }
       if (item?.share_info?.function_entries?.length > 0) {
-        // 视频下载限制
+        // è§†é¢‘ä¸‹è½½é™åˆ¶
         const additem = { type: "video_download" };
-        // 检查是否存在 video_download 并获取其索引
+        // æ£€æŸ¥æ˜¯å¦å­˜åœ¨ video_download å¹¶èŽ·å–å…¶ç´¢å¼•
         let videoDownloadIndex = item.share_info.function_entries.findIndex((i) => i?.type === "video_download");
         if (videoDownloadIndex !== -1) {
-          // 如果存在，将其移动到数组的第一个位置
+          // å¦‚æžœå­˜åœ¨ï¼Œå°†å…¶ç§»åŠ¨åˆ°æ•°ç»„çš„ç¬¬ä¸€ä¸ªä½ç½®
           let videoDownloadEntry = item.share_info.function_entries.splice(videoDownloadIndex, 1)[0];
           item.share_info.function_entries.splice(0, 0, videoDownloadEntry);
         } else {
-          // 如果不存在，在数组开头添加一个新的 video_download 对象
+          // å¦‚æžœä¸å­˜åœ¨ï¼Œåœ¨æ•°ç»„å¼€å¤´æ·»åŠ ä¸€ä¸ªæ–°çš„ video_download å¯¹è±¡
           item.share_info.function_entries.splice(0, 0, additem);
         }
       }
     }
   }
 } else if (url.includes("/v4/followfeed")) {
-  // 关注列表
+  // å…³æ³¨åˆ—è¡¨
   if (obj?.data?.items?.length > 0) {
-    // recommend_user可能感兴趣的人
+    // recommend_userå¯èƒ½æ„Ÿå…´è¶£çš„äºº
     obj.data.items = obj.data.items.filter((i) => !["recommend_user"]?.includes(i?.recommend_reason));
   }
 } else if (url.includes("/v4/note/videofeed")) {
-  // 信息流 视频
+  // ä¿¡æ¯æµ è§†é¢‘
   let modDatas = [];
   let newDatas = [];
   let unlockDatas = [];
@@ -179,16 +179,16 @@ if (url.includes("/v1/interaction/comment/video/download")) {
           newDatas.push(myData);
         }
         if (item?.share_info?.function_entries?.length > 0) {
-          // 视频下载限制
+          // è§†é¢‘ä¸‹è½½é™åˆ¶
           const additem = { type: "video_download" };
-          // 检查是否存在 video_download 并获取其索引
+          // æ£€æŸ¥æ˜¯å¦å­˜åœ¨ video_download å¹¶èŽ·å–å…¶ç´¢å¼•
           let videoDownloadIndex = item.share_info.function_entries.findIndex((i) => i?.type === "video_download");
           if (videoDownloadIndex !== -1) {
-            // 如果存在，将其移动到数组的第一个位置
+            // å¦‚æžœå­˜åœ¨ï¼Œå°†å…¶ç§»åŠ¨åˆ°æ•°ç»„çš„ç¬¬ä¸€ä¸ªä½ç½®
             let videoDownloadEntry = item.share_info.function_entries.splice(videoDownloadIndex, 1)[0];
             item.share_info.function_entries.splice(0, 0, videoDownloadEntry);
           } else {
-            // 如果不存在，在数组开头添加一个新的 video_download 对象
+            // å¦‚æžœä¸å­˜åœ¨ï¼Œåœ¨æ•°ç»„å¼€å¤´æ·»åŠ ä¸€ä¸ªæ–°çš„ video_download å¯¹è±¡
             item.share_info.function_entries.splice(0, 0, additem);
           }
         }
@@ -202,9 +202,9 @@ if (url.includes("/v1/interaction/comment/video/download")) {
       }
       obj.data = modDatas;
     }
-    $persistentStore.write(JSON.stringify(newDatas), "redBookVideoFeed"); // 普通视频 写入持久化存储
+    $persistentStore.write(JSON.stringify(newDatas), "redBookVideoFeed"); // æ™®é€šè§†é¢‘ å†™å…¥æŒä¹…åŒ–å­˜å‚¨
   }
-  let videoFeedUnlock = JSON.parse($persistentStore.read("redBookVideoFeedUnlock")); // 禁止保存的视频 读取持久化存储
+  let videoFeedUnlock = JSON.parse($persistentStore.read("redBookVideoFeedUnlock")); // ç¦æ­¢ä¿å­˜çš„è§†é¢‘ è¯»å–æŒä¹…åŒ–å­˜å‚¨
   if (videoFeedUnlock?.gayhub === "rucu6") {
     if (obj?.data?.length > 0) {
       for (let item of obj.data) {
@@ -217,17 +217,17 @@ if (url.includes("/v1/interaction/comment/video/download")) {
         }
       }
     }
-    $persistentStore.write(JSON.stringify(unlockDatas), "redBookVideoFeedUnlock"); // 禁止保存的视频 写入持久化存储
+    $persistentStore.write(JSON.stringify(unlockDatas), "redBookVideoFeedUnlock"); // ç¦æ­¢ä¿å­˜çš„è§†é¢‘ å†™å…¥æŒä¹…åŒ–å­˜å‚¨
   }
 } else if (url.includes("/v5/note/comment/list")) {
-  // 处理评论区实况照片
+  // å¤„ç†è¯„è®ºåŒºå®žå†µç…§ç‰‡
   replaceRedIdWithFmz200(obj.data);
   let livePhotos = [];
   let note_id = "";
   if (obj?.data?.comments?.length > 0) {
     note_id = obj.data.comments[0].note_id;
     for (const comment of obj.data.comments) {
-      // comment_type: 0-文字，2-图片/live，3-表情包
+      // comment_type: 0-æ–‡å­—ï¼Œ2-å›¾ç‰‡/liveï¼Œ3-è¡¨æƒ…åŒ…
       if (comment?.comment_type === 3) {
         comment.comment_type = 2;
       }
@@ -276,43 +276,43 @@ if (url.includes("/v1/interaction/comment/video/download")) {
   }
   if (livePhotos?.length > 0) {
     let commitsRsp;
-    let commitsCache = JSON.parse($persistentStore.read("redBookCommentLivePhoto")); // 读取持久化存储
+    let commitsCache = JSON.parse($persistentStore.read("redBookCommentLivePhoto")); // è¯»å–æŒä¹…åŒ–å­˜å‚¨
     if (!commitsCache) {
       commitsRsp = { noteId: note_id, livePhotos: livePhotos };
     } else {
-      commitsRsp = JSON.parse(commitsCache);
+      commitsRsp = commitsCache;
       if (commitsRsp?.noteId === note_id) {
         commitsRsp.livePhotos = deduplicateLivePhotos(commitsRsp.livePhotos.concat(livePhotos));
       } else {
         commitsRsp = { noteId: note_id, livePhotos: livePhotos };
       }
     }
-    $persistentStore.write(JSON.stringify(commitsRsp), "redBookCommentLivePhoto"); // 评论区实况照片 写入持久化存储
+    $persistentStore.write(JSON.stringify(commitsRsp), "redBookCommentLivePhoto"); // è¯„è®ºåŒºå®žå†µç…§ç‰‡ å†™å…¥æŒä¹…åŒ–å­˜å‚¨
   }
 } else if (url.includes("/v5/recommend/user/follow_recommend")) {
-  // 用户详情页 你可能感兴趣的人
-  if (obj?.data?.title === "你可能感兴趣的人" && obj?.data?.rec_users?.length > 0) {
+  // ç”¨æˆ·è¯¦æƒ…é¡µ ä½ å¯èƒ½æ„Ÿå…´è¶£çš„äºº
+  if (obj?.data?.title === "ä½ å¯èƒ½æ„Ÿå…´è¶£çš„äºº" && obj?.data?.rec_users?.length > 0) {
     obj.data = {};
   }
 } else if (url.includes("/v6/homefeed")) {
   if (obj?.data?.length > 0) {
-    // 信息流广告
+    // ä¿¡æ¯æµå¹¿å‘Š
     let newItems = [];
     for (let item of obj.data) {
       if (item?.model_type === "live_v2") {
-        // 信息流-直播
+        // ä¿¡æ¯æµ-ç›´æ’­
         continue;
       } else if (item.hasOwnProperty("ads_info")) {
-        // 信息流-赞助
+        // ä¿¡æ¯æµ-èµžåŠ©
         continue;
       } else if (item.hasOwnProperty("card_icon")) {
-        // 信息流-带货
+        // ä¿¡æ¯æµ-å¸¦è´§
         continue;
       } else if (item.hasOwnProperty("note_attributes")) {
-        // 信息流-带货
+        // ä¿¡æ¯æµ-å¸¦è´§
         continue;
       } else if (item?.note_attributes?.includes("goods")) {
-        // 信息流-商品
+        // ä¿¡æ¯æµ-å•†å“
         continue;
       } else {
         if (item?.related_ques) {
@@ -324,9 +324,9 @@ if (url.includes("/v1/interaction/comment/video/download")) {
     obj.data = newItems;
   }
 } else if (url.includes("/v10/note/video/save")) {
-  // 视频保存请求
-  let videoFeed = JSON.parse($persistentStore.read("redBookVideoFeed")); // 普通视频 读取持久化存储
-  let videoFeedUnlock = JSON.parse($persistentStore.read("redBookVideoFeedUnlock")); // 禁止保存的视频 读取持久化存储
+  // è§†é¢‘ä¿å­˜è¯·æ±‚
+  let videoFeed = JSON.parse($persistentStore.read("redBookVideoFeed")); // æ™®é€šè§†é¢‘ è¯»å–æŒä¹…åŒ–å­˜å‚¨
+  let videoFeedUnlock = JSON.parse($persistentStore.read("redBookVideoFeedUnlock")); // ç¦æ­¢ä¿å­˜çš„è§†é¢‘ è¯»å–æŒä¹…åŒ–å­˜å‚¨
   if (obj?.data?.note_id && videoFeed?.length > 0) {
     for (let item of videoFeed) {
       if (item.id === obj.data.note_id) {
@@ -350,7 +350,7 @@ if (url.includes("/v1/interaction/comment/video/download")) {
   videoFeedUnlock = { gayhub: "rucu6" };
   $persistentStore.write(JSON.stringify(videoFeedUnlock), "redBookVideoFeedUnlock");
 } else if (url.includes("/v10/search/notes")) {
-  // 搜索结果
+  // æœç´¢ç»“æžœ
   if (obj?.data?.items?.length > 0) {
     obj.data.items = obj.data.items.filter((i) => i?.model_type === "note");
   }
@@ -377,8 +377,8 @@ function replaceRedIdWithFmz200(obj) {
     obj.forEach((item) => replaceRedIdWithFmz200(item));
   } else if (typeof obj === "object" && obj !== null) {
     if ("red_id" in obj) {
-      obj.fmz200 = obj.red_id; // 创建新属性fmz200
-      delete obj.red_id; // 删除旧属性red_id
+      obj.fmz200 = obj.red_id; // åˆ›å»ºæ–°å±žæ€§fmz200
+      delete obj.red_id; // åˆ é™¤æ—§å±žæ€§red_id
     }
     Object.keys(obj).forEach((key) => {
       replaceRedIdWithFmz200(obj[key]);
