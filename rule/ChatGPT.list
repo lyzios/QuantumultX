@@ -3,7 +3,6 @@
 # UPDATED: 2026-01-27
 
 HOST,chat.openai.com.cdn.cloudflare.net
-HOST,gemini.google.com
 HOST,openaicom.imgix.net
 HOST,openai-api.arkoselabs.com
 HOST,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
