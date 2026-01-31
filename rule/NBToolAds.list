@@ -1,6 +1,6 @@
 # NAME: NBToolAds
 # AUTHOR: LYZIOS
-# UPDATED: 2025-7-14
+# UPDATED: 2026-1-31
 
 HOST-SUFFIX,e.kuaishou.com
 HOST-SUFFIX,gepush.com
@@ -16,3 +16,4 @@ HOST-SUFFIX,api-cfg.8ziben.com
 HOST-SUFFIX,api-dsp.8ziben.com
 HOST-SUFFIX,static-dsp.8ziben.com
 HOST-SUFFIX,ctyunxs.cn
+HOST-SUFFIX,eos.huhehaote-8.cmecloud.cn
