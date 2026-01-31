@@ -2,18 +2,18 @@
 # AUTHOR: LYZIOS
 # UPDATED: 2026-1-31
 
-HOST-SUFFIX,e.kuaishou.com
-HOST-SUFFIX,gepush.com
-HOST-SUFFIX,bugly.qq.com
-HOST-SUFFIX,adukwai.com
-HOST-SUFFIX,adkwai.com
-HOST-SUFFIX,yxings.com
-HOST-SUFFIX,zhangyuyidong.cn
 HOST-SUFFIX,adintl.cn
-HOST-SUFFIX,cdnhwc8.com
-HOST-SUFFIX,gifshow.com
+HOST-SUFFIX,adkwai.com
+HOST-SUFFIX,adukwai.com
 HOST-SUFFIX,api-cfg.8ziben.com
 HOST-SUFFIX,api-dsp.8ziben.com
-HOST-SUFFIX,static-dsp.8ziben.com
+HOST-SUFFIX,bugly.qq.com
+HOST-SUFFIX,cdnhwc8.com
 HOST-SUFFIX,ctyunxs.cn
+HOST-SUFFIX,e.kuaishou.com
 HOST-SUFFIX,eos.huhehaote-8.cmecloud.cn
+HOST-SUFFIX,gepush.com
+HOST-SUFFIX,gifshow.com
+HOST-SUFFIX,static-dsp.8ziben.com
+HOST-SUFFIX,yxings.com
+HOST-SUFFIX,zhangyuyidong.cn
